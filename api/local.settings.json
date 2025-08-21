@@ -1,0 +1,12 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+    "WEBSITE_RUN_FROM_PACKAGE": "0",
+    "EMAILJS_SERVICE_ID": "replace",
+    "EMAILJS_TEMPLATE_ID": "replace",
+    "EMAILJS_PUBLIC_KEY": "replace",
+    "EMAILJS_PRIVATE_KEY": "replace",
+    "ALLOWED_ORIGIN": "http://localhost:5173"
+  }
+}
