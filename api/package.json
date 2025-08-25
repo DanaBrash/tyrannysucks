@@ -1,13 +1,15 @@
 {
   "name": "api",
   "version": "1.0.0",
+  "private": true,
   "type": "module",
+  "main": "src/index.js",
   "scripts": {
     "start": "func start"
   },
   "dependencies": {
     "@azure/functions": "^4.4.0",
-    "@emailjs/nodejs": "^4.4.1",
+    "@emailjs/nodejs": "^5.0.2",
     "zod": "^3.23.8"
   }
 }
