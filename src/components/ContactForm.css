@@ -1,3 +1,129 @@
-.status {
-  min-height: 24px;
+/* Form container */
+.contactForm {
+  display: grid;
+  gap: 16px;
+  padding: 24px;
+  border-radius: 12px;
+  /* Form background that looks good on a photo */
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+
+  /* Typography */
+  color: whitesmoke;
+  font-family: 'Macondo Display', cursive;
+  font-weight: 600;
+  font-size: 3rem;
+  /* Ensure it shrinks nicely on mobile inside your .card */
+  width: 100%;
+  box-sizing: border-box;
 }
+
+/* Group wrapper */
+.formGroup {
+  display: grid;
+  gap: 6px;
+}
+
+/* Labels */
+.label {
+  font-size: 1rem;
+  text-align: left;;
+  letter-spacing: 0.2px;
+  word-spacing: -10%;
+  opacity: 0.95;
+}
+
+/* Inputs / Textareas */
+.input, .textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid whitesmoke;
+  background: rgba(17, 17, 17, 0.85);
+  color: #ffffff;
+  outline: none;
+  transition: border-color 120ms ease, box-shadow 120ms ease, background 120ms ease;
+  box-sizing: border-box;
+}
+
+.input::placeholder, .textarea::placeholder {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.input:focus, .textarea:focus {
+  border-color: whitesmoke;
+  box-shadow: 0 0 0 3px rgba(67, 215, 22, 0.25);
+  background: rgb(245, 245, 245);
+  color: black;
+}
+
+
+/* Turn red when invalid and either dirty OR after submit attempt */
+.contactForm .input.dirty:invalid,
+.contactForm .textarea.dirty:invalid,
+.contactForm.wasValidated .input:invalid,
+.contactForm.wasValidated .textarea:invalid {
+  border-color: #ff6b6b;
+  box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.25);
+}
+
+/* inline alias error/suggestion */
+.fieldError { margin-top: 6px; font-size: .9rem; color: #ffb3b3; }
+.fixButton {
+  appearance: none; background: rgba(67,215,22,.15);
+  border: 1px solid rgba(67,215,22,.5); color: #b9f5b1;
+  padding: 2px 8px; border-radius: 999px; font-size: .85rem; cursor: pointer;
+}
+.charCount { margin-top: 4px; font-size: .85rem; color: rgba(255,255,255,.75); }
+
+
+/* Textarea sizing */
+.textarea {
+  min-height: 140px;
+  resize: vertical;
+}
+
+/* Submit button */
+.submitButton {
+  appearance: none;
+  border: none;
+  border-radius: 15px;
+  padding: 12px 18px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  cursor: pointer;
+
+  background: transparent; /* your green accent from the text-shadow earlier */
+  color: whitesmoke;
+  transition: transform 80ms ease, filter 160ms ease, box-shadow 120ms ease;
+  box-shadow: 3px 3px 15px -7px  darkorange;
+}
+
+.submitButton:hover {
+  filter: brightness(1.05);
+}
+.submitButton:active {
+  transform: translateY(1px);
+}
+.submitButton:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+/* Status line */
+.status {
+  min-height: 1.2em;
+  font-size: 0.95rem;
+  color: #d3ffd1;
+}
+
+/* Make the form breathe on small screens */
+@media (max-width: 520px) {
+  .contactForm { padding: 16px; }
+  .textarea { min-height: 120px; }
+}
+
+
+
+
+

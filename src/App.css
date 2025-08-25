@@ -1,6 +1,73 @@
 #root {
-  max-width: 100%;
+  width: 100%;
+  max-width: none;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 0;
   text-align: center;
 }
+/* 1) reset page edge padding that can throw centering off */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow-x: hidden; /* prevent horizontal scroll */
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+/* 2) page stacks children; lets them stretch full width */
+.page {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch; /* key: children are full width */
+  min-height: 100vh;
+  background: black;
+  color: white;
+  font-family: sans-serif;
+}
+
+/* 3) full-bleed banner that is perfectly centered */
+.hero-banner {
+  /* full-bleed without shifting the visual center */
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+
+  min-height: 40vh; /* or a fixed 300px */
+  background: url("/img/WTO_protests_in_Seattle_November_30_1999_credited.png")
+    center 95% / cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.page-title {
+  font-size: 3rem;
+  font-weight: bold;
+  font-family: 'Sonsie One', cursive;
+  position: absolute;
+  top: 15%;
+  right: 2%;
+  color: darkorange;
+  -webkit-text-stroke: 1px black;
+  text-shadow: 2px 5px 10px rgba(255, 166, 0, 0.803);
+  background-color: rgba(35, 35, 36, 0.050); /* semi-transparent background */
+  padding: 1rem 2rem;
+  border-radius: 50px;
+}
+
+.card-title {
+  font-size: 3rem;
+  font-family: 'Macondo Display', cursive;
+  font-weight: 1000;
+  color: darkorange;
+  -webkit-text-stroke: 1px black;
+  text-shadow: 2px 5px 5px rgba(255, 238, 0, .5);
+  background-color: transparent; /* semi-transparent background */
+}
+
