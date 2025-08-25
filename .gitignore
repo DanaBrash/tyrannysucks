@@ -1,0 +1,55 @@
+# ----------------------------
+# Node / JS
+# ----------------------------
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-lock.yaml
+yarn.lock
+
+# ----------------------------
+# Build output
+# ----------------------------
+dist/
+.vite/
+
+# ----------------------------
+# Azure Functions (api/)
+# ----------------------------
+api/node_modules/
+api/bin/
+api/obj/
+api/local.settings.json
+
+# Azurite emulator artifacts
+api/__azurite_db_*.json
+api/__blobstorage__/
+api/__queuestorage__/
+AzuriteConfig
+
+# ----------------------------
+# Environment / secrets
+# ----------------------------
+.env
+.env.*
+!.env.example
+
+# ----------------------------
+# OS / Editor
+# ----------------------------
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# ----------------------------
+# Test / coverage
+# ----------------------------
+coverage/
+
+# ----------------------------
+# GitHub / misc
+# ----------------------------
+*.swp
+*.swo

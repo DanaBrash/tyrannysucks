@@ -2,6 +2,12 @@ import { app } from "@azure/functions";
 import emailjs from "@emailjs/nodejs";
 import { z } from "zod";
 
+emailjs.init({
+  publicKey: process.env.EMAILJS_PUBLIC_KEY,
+  privateKey: process.env.EMAILJS_PRIVATE_KEY, // <-- required in strict mode
+});
+
+
 const cors = () => {
   const allow = process.env.ALLOWED_ORIGIN || "*";
   return {
