@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 const API_BASE = "https://func-mailjs.azurewebsites.net"; // no /api right now
-const FUNCTION_KEY = "gBMH7oPqG80R7K0_sMj1iJ9tDW1ltu2uPtuwAY3JQJHmAzFu_DFcOg==";
+const FUNCTION_KEY = import.meta.env.VITE_FUNCTION_KEY || "";
 
 export function useContactForm() {
   const formRef = useRef(null);

@@ -34,6 +34,7 @@ AzuriteConfig
 .env
 .env.*
 !.env.example
+n.env
 
 # ----------------------------
 # OS / Editor
