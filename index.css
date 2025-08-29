@@ -1,5 +1,5 @@
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Rock Salt', sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
@@ -25,7 +25,7 @@ a:hover {
 .mainhead {
   font-size: 3.2em;
   line-height: 1.1;
-  font-family: 'Sonsie One', cursive;
+  font-family: 'Rock Salt', sans-serif;
   font-weight: 400;
   font-size: 5em;
   color: #f6f602;
@@ -41,7 +41,7 @@ body {
   background-color: black;
   color: rgb(246, 246, 2);
   margin: 0;
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: 'Rock Salt', sans-serif;
   margin: 0;
   display: flex;
   place-items: center;

@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import "./ContactForm.css";
 import { useContactForm } from "../hooks/useContactForm";
 
 export default function ContactForm() {
+  const [statusType, setStatusType] = useState('');
   const {
     formRef,
     status,
@@ -31,6 +32,7 @@ export default function ContactForm() {
           name="from_name"
           className="input"
           required
+          placeholder="Who are you?"
           maxLength={64}
           onInput={markDirty}
         />
@@ -38,7 +40,7 @@ export default function ContactForm() {
 
       <div className="formGroup">
         <label htmlFor="reply_to" className="label">
-          Your Current Email (we’ll use this to contact you)
+          {"Your Current Email (we\u2019ll use this to contact you)"}
         </label>
         <input
           id="reply_to"
@@ -54,12 +56,16 @@ export default function ContactForm() {
       </div>
 
       <div className="formGroup">
-        <label htmlFor="new_mail" className="label">
-          Desired Email Alias (you’ll get @tyranny.sucks)
+        <label htmlFor="alias" className="label">
+          First Choice Alias (
+          <i>
+            <b>Alias</b>
+          </i>
+          @tyranny.sucks)
         </label>
         <input
-          id="new_mail"
-          name="new_mail"
+          id="alias"
+          name="alias"
           type="text"
           className="input"
           required
@@ -94,7 +100,11 @@ export default function ContactForm() {
       <button type="submit" className="submitButton">
         Send
       </button>
-      <div className="status">{status}</div>
+      {status && (
+        <div className={`status${statusType ? ` ${statusType}` : ""}`}>
+          {status}
+        </div>
+      )}
     </form>
   );
 }

@@ -28,7 +28,7 @@ body {
   min-height: 100vh;
   background: black;
   color: white;
-  font-family: sans-serif;
+  font-family: 'Rock Salt', sans-serif;
 }
 
 /* 3) full-bleed banner that is perfectly centered */
@@ -49,13 +49,13 @@ body {
 .page-title {
   font-size: 3rem;
   font-weight: bold;
-  font-family: 'Sonsie One', cursive;
+  font-family: 'Rock Salt', sans-serif;
   position: absolute;
   top: 15%;
   right: 2%;
-  color: darkorange;
+  color: crimson;
   -webkit-text-stroke: 1px black;
-  text-shadow: 2px 5px 10px rgba(255, 166, 0, 0.803);
+  text-shadow: 2px 5px 10px rgba(128,0,32,1);
   background-color: rgba(35, 35, 36, 0.050); /* semi-transparent background */
   padding: 1rem 2rem;
   border-radius: 50px;
@@ -63,11 +63,11 @@ body {
 
 .card-title {
   font-size: 3rem;
-  font-family: 'Macondo Display', cursive;
+  font-family: 'Rock Salt', sans-serif;
   font-weight: 1000;
-  color: darkorange;
+  color: crimson;
   -webkit-text-stroke: 1px black;
-  text-shadow: 2px 5px 5px rgba(255, 238, 0, .5);
+  text-shadow: 2px 5px 5px rgba(128,0,32,1);
   background-color: transparent; /* semi-transparent background */
 }
 

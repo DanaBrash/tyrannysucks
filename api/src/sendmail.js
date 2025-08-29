@@ -20,7 +20,7 @@ const cors = () => {
 const Body = z.object({
   from_name: z.string().min(1),
   reply_to: z.string().email(),
-  new_mail: z.string().email(),
+  alias: z.string().email(),
   message: z.string().min(1)
 });
 
@@ -50,7 +50,7 @@ app.http("sendmail", {
         {
           from_name: payload.from_name,
           reply_to: payload.reply_to,
-          new_mail: payload.new_mail,
+          alias: payload.alias,
           message: payload.message
         },
         {

@@ -1,4 +1,6 @@
 import { useRef, useState } from "react";
+const API_BASE = "https://func-mailjs.azurewebsites.net"; // no /api right now
+const FUNCTION_KEY = "gBMH7oPqG80R7K0_sMj1iJ9tDW1ltu2uPtuwAY3JQJHmAzFu_DFcOg==";
 
 export function useContactForm() {
   const formRef = useRef(null);
@@ -160,17 +162,23 @@ export function useContactForm() {
     const body = {
       from_name: form.get("from_name") || "",
       reply_to: form.get("reply_to") || "",
-      new_mail: form.get("new_mail") || "",
+      alias: form.get("alias") || "",
       message: form.get("message") || "",
     };
 
     try {
       const API_BASE = import.meta.env.VITE_API_BASE || "";
-      const res = await fetch(`${API_BASE}/sendmail`, {
+      const FUNCTION_KEY = import.meta.env.VITE_FUNCTION_KEY || "";
+      // build the URL: add ?code= only when not localhost
+      const isPublic = API_BASE && !API_BASE.includes("localhost");
+      const url = `${API_BASE}/sendmail${isPublic && FUNCTION_KEY ? `?code=${encodeURIComponent(FUNCTION_KEY)}` : ""}`;
+
+      const res = await fetch(`${API_BASE}/sendmail?code=${encodeURIComponent(FUNCTION_KEY)}`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body),
       });
+
       if (!res.ok)
         throw new Error(await res.text().catch(() => res.statusText));
       setStatus("Sent!");
@@ -178,9 +186,10 @@ export function useContactForm() {
       formRef.current.classList.remove("wasValidated");
       prevMsgLenRef.current = 0;
       setMsgCount(0);
-    } catch (err) {
-      console.error(err);
-      setStatus("Failed: " + (err.message || "unknown"));
+    } catch (error) {
+      console.error("Email send failed:", error); // Shows real error in console
+      setStatus("Send failed: " + (error.message || "unknown")); // Shows actual cause in UI
+      setStatusType("error");
     }
   };
 
